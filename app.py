@@ -4,13 +4,24 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Python'
 db = SQLAlchemy(app)
 
+class Login(db.Model):
+     id = db.Column('id', db.Integer, primary_key=True)
+     name = db.Column('name', db.String(30))
+     last_name = db.Column('last_name', db.String(40))
+     age = db.Column('age', db.Integer)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        session['username'] = request.form["username"]
-        return redirect(url_for("hello my new user"))
-    return render_template('login.html')
+    if request.method == "POST":
+        name = request.form["name"]
+        last_name = request.form["last_name"]
+        age = request.form["age"]
+        login = Login(name=name, last_name=last_name, age=age)
+        db.session.add(login)
+        db.session.commit()
+        flash("Added Successfully! ")
+        return redirect(url_for("hellp world"))
+    return render_template("login.html")
 class Books(db.Model):
     id = db.Column('id', db.Integer, primary_key=True)
     title = db.Column('title', db.String(30))
