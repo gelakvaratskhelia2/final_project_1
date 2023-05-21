@@ -35,6 +35,12 @@ def logout():
     return "You have been logged out. Goodbye!"
 logout()
 
+@app.route('/search',methods=['GET','POST'])
+def search():
+    if request.method == 'POST':
+        return redirect(url_for('search_results'))
+    return render_template('search.html')
+
 
 if __name__ == '__main__':
     app.run()
