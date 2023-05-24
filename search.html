@@ -1,0 +1,18 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+{% extends 'base.html' %}
+    <h1>Search Form</h1>
+    <form method="post" action="/search">
+        <div class="form-group">
+            <label for="query">Search Query</label>
+            <input type="text" class="form-control" id="query" name="query" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>button>
+    </form>
+</body>
+</html>
