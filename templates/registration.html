@@ -1,53 +1,30 @@
-  <form>
-      <div>
-        <h1>Register</h1>
-        <p>Kindly fill in this form to register.</p>
-          <form>
-      <div>
-        <h1>Register</h1>
-        <p>Kindly fill in this form to register.</p>
-          <label for="firstname"><b>firstname</b></label>
-        <input
-          type="text"
-          placeholder="Enter firstname"
-          name="firstname"
-          id="firstname"
-          required
-        />
+  {% extends "base.html" %}
 
-        <label for="lastname"><b>lastname</b></label>
-        <input
-          type="text"
-          placeholder="Enter lastname"
-          name="lastname"
-          id="lastname"
-          required
-        />
-          <label for="username"><b>Username</b></label>
-        <input
-          type="text"
-          placeholder="Enter username"
-          name="username"
-          id="username"
-          required
-        />
-
-        <label for="email"><b>Email</b></label>
-        <input
-          type="text"
-          placeholder="Enter Email"
-          name="email"
-          id="email"
-          required
-        />
-        <label for="pwd"><b>Password</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="pwd"
-          id="pwd"
-          required
-        />
-      </div>
-      <div></div>
-    </form>
+{% block content %}
+  <h2>Registration</h2>
+  <form action="/register" method="post">
+    <div>
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" required>
+    </div>
+    <div>
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" required>
+    </div>
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <input type="submit" value="Register">
+    </div>
+  </form>
+{% endblock %}
